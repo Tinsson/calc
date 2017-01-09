@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>房贷计算器</title>
+	<link rel="stylesheet" type="text/css" href="./css/reset.css">
+  	<link rel="stylesheet" type="text/css" href="./css/main.css">
+  	<script src="./js/jquery.js"></script>
+  	<script src="./js/common.js"></script>
+</head>
+<body>
+	<div class="content">
+		<div class="calc_header">
+			<em class="calc_icon"></em>
+			<h1>房贷计算器</h1>
+		</div>
+		<p class="ratemsg">
+			最新商贷利率 <span class="ratenum">4.90%</span>，公积金利率 <span class="ratenum">3.25%</span>
+		</p>
+		<div class="input_block">
+			<h3>输入数据</h3>
+			<form id="input_form">
+				<div class="form_group clearfix">
+					<label class="left_hd">计算方式</label>
+					<div class="msg_box fl">
+						<input id="limit1" class="point" type="radio" name="calctype" value="1" checked>
+						<label class="limit" for="limit1">按贷款额度算</label>
+						<input id="limit2" class="point" type="radio" name="calctype" value="2">
+						<label class="limit" for="limit2">按面积算</label>
+					</div>
+				</div>
+				<div class="form_group clearfix off dkarea">
+					<label for="unit" class="left_hd">平米单价</label>
+					<div class="msg_box fl">
+						<input id="unit" class="conarea" type="number" name="unit">
+						<span>元/平米</span>
+					</div>
+				</div>
+				<div class="form_group clearfix off dkarea">
+					<label for="area" class="left_hd">面积</label>
+					<div class="msg_box fl">
+						<input id="area" class="conarea" type="number" name="area">
+						<span>平米</span>
+					</div>
+				</div>
+				<div class="form_group clearfix off dkarea">
+					<label class="left_hd">首付</label>
+					<div class="msg_box fl">
+						<select id="downpay" name="downpay">
+							<option value="0.2">2成</option>
+							<option value="0.3">3成</option>
+							<option value="0.4">4成</option>
+							<option value="0.5">5成</option>
+							<option value="0.6">6成</option>
+							<option value="0.7">7成</option>
+							<option value="0.8">8成</option>
+							<option value="0.9">9成</option>
+						</select>
+					</div>
+				</div>
+				<div class="form_group clearfix dked">
+					<label for="amount" class="left_hd">贷款金额</label>
+					<div class="msg_box fl">
+						<input id="amount" class="conarea" type="number" name="price">
+						<span>元</span>
+					</div>
+				</div>
+				<div class="form_group clearfix">
+					<label for="years" class="left_hd">贷款期限</label>
+					<div class="msg_box fl">
+						<input id="years" class="conarea" type="number" name="years" value="10">
+						<span>年</span>
+					</div>
+				</div>
+				<div class="form_group clearfix">
+					<label class="left_hd">年利率</label>
+					<div class="msg_box fl">
+						<select id="baserate">
+							<option value="1">最新基准利率</option>
+							<option value="0.7">最新基准利率7折</option>
+							<option value="0.8">最新基准利率8折</option>
+							<option value="0.9">最新基准利率9折</option>
+							<option value="1.1">最新基准利率1.1倍</option>
+							<option value="1.2">最新基准利率1.2倍</option>
+							<option value="1.3">最新基准利率1.3倍</option>
+						</select>
+					</div>
+				</div>
+				<div class="form_group clearfix">
+					<label class="left_hd">　</label>
+					<div class="msg_box fl">
+						<span class="smtxt">您也可以手动输入</span>
+						<input id="rate" class="smarea" type="text" name="rate" value="4.90%">
+					</div>
+				</div>
+				<div class="form_group clearfix">
+					<label class="left_hd">　</label>
+					<div class="msg_box fl">
+						<button id="calc_btn" class="btn btn-ca">计算</button>
+						<button id="reset_btn" class="btn btn-ret">重置</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="content_block clearfix">
+			<h3>输出结果</h3>
+			<div class="result_box1">
+				<table width="310">
+					<span class="reshd">每月等额还款（等额本息）</span>
+					<tbody class="tbout">
+						<tr>
+							<td class="td1">贷款总额</td>
+							<td class="td2"><var class="dktotal">0</var> 元</td>
+						</tr>
+						<tr>
+							<td class="td1">还款月数</td>
+							<td class="td2"><var class="dkmouth">0</var> 月</td>
+						</tr>
+						<tr height="43">
+							<td class="td1">每月还款</td>
+							<td class="td2"><var id="de_repay">0</var> 元</td>
+						</tr>
+						<tr>
+							<td class="td1">总支付利息</td>
+							<td class="td2"><var id="de_interest">0</var> 元</td>
+						</tr>
+						<tr>
+							<td class="td1">本息总计</td>
+							<td class="td2"><var id="de_total">0</var> 元</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="result_box2">
+				<table width="310">
+					<span class="reshd">逐月递减还款（等额本金）</span>
+					<tbody class="tbout">
+						<tr>
+							<td class="td1">贷款总额</td>
+							<td class="td2"><var class="dktotal">0</var> 元</td>
+						</tr>
+						<tr>
+							<td class="td1">还款月数</td>
+							<td class="td2"><var class="dkmouth">0</var> 月</td>
+						</tr>
+						<tr>
+							<td class="td1">首月还款</td>
+							<td class="td2" style="line-height:20px"><var id="dj_repay">0</var> 元<br/>
+								每月递减：<b id="dj_reduce">0</b> 元
+							</td>
+						</tr>
+						<tr>
+							<td class="td1">总支付利息</td>
+							<td class="td2"><var id="dj_interest">0</var> 元</td>
+						</tr>
+						<tr>
+							<td class="td1">本息总计</td>
+							<td class="td2"><var id="dj_total">0</var> 元</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+.content{
+	border: 1px solid #eff2f7;
+	margin: 0 auto;
+	margin-top: 20px;
+	width: 740px;
+	min-height: 730px;
+	padding-bottom: 20px;
+}
+/* 标题信息 */
+.content .calc_header{
+	position: relative;
+	height: 44px;
+	line-height: 37px;
+}
+.content .calc_header .calc_icon{
+	position: absolute;
+	display: inline-block;
+	left: 10px;
+	top: -8px;
+	width: 50px;
+	height: 50px;
+	background: url("../image/calhd.png") no-repeat center;
+}
+.content .calc_header h1{
+	background-color: #f2f7fd;
+	font-size: 18px;
+	padding-left: 70px;
+	margin: 0;
+}
+.content .ratemsg{
+	margin: 20px 40px 10px;
+	font-size: 14px;
+}
+.content .ratemsg .ratenum{
+	font-size: 18px;
+	color: #f00;
+}
+/* 输入板块 */
+.content .input_block,.content .content_block{
+	position: relative;
+	border-bottom: 1px dotted #e0e6ef;
+	padding-bottom: 20px;
+	margin: 0 40px;
+}
+.content .input_block h3,.content .content_block h3{
+	margin-left: 34px;
+	clear: both;
+	font-size: 18px;
+	line-height: 15px;
+	margin: 20px 0;
+	padding-left: 16px;
+	background: url("../image/arrow.png") no-repeat left;
+}
+.content .input_block .form_group{
+	width: 100%;
+	line-height: 30px;
+	padding-bottom: 10px;
+}
+.content .input_block .off{
+	display: none;
+}
+.content .form_group .left_hd{
+	font-size: 14px;
+	display: block;
+	width: 100px;
+	float: left;
+}
+.content .form_group .msg_box{
+	font-size: 14px;
+}
+.content .form_group .limit{
+	padding-right: 10px;
+}
+.content .form_group .point{
+	vertical-align: middle;
+}
+.content .form_group .conarea{
+	width: 160px;
+	height: 26px;
+	line-height: 26px;
+	font-size: 14px;
+	padding-left:10px;
+	border: 1px solid #d6d6d6;
+}
+.content .form_group select{
+	width: 172px;
+	height: 28px;
+	line-height: 26px;
+	font-size: 14px;
+	padding-left:10px;
+	border: 1px solid #d6d6d6;
+}
+.content .form_group .smtxt{
+	font-size: 12px;
+	color: #999;
+}
+.content .form_group .smarea{
+	width: 60px;
+	height: 26px;
+	line-height: 26px;
+	font-size: 14px;
+	padding-left: 10px;
+	border:1px solid #d6d6d6;
+}
+.content .form_group .btn{
+	width: 85px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	font-size: 14px;
+	border-radius: 5px;
+}
+.content .form_group .btn-ca{
+	color: #fff;
+	background-color: #418BCA;
+	border: 1px solid #418BCA;
+}
+.content .form_group .btn-ret{
+	color: #000;
+	background-color: #e3e3e3;
+	border: 1px solid #e3e3e3;
+	margin-left: 20px;
+}
+/*输出结果*/
+.content_block .result_box1{
+	width: 330px;
+	float: left;
+}
+.content_block .result_box2{
+	width: 330px;
+	float: left;
+}
+.content_block .reshd{
+	line-height: 30px;
+	font-size: 14px;
+}
+.content_block .tbout{
+	border: solid #d5d5d5;
+	border-width: 1px 0 0 1px;
+}
+.content_block td{
+	border: solid #d5d5d5;
+	border-width: 0 1px 1px 0;
+	height: 25px;
+	line-height: 30px;
+	font-size: 14px;
+}
+.content_block .td1{
+	width: 90px;
+	background-color: #f8f8f8;
+	padding-left: 10px;
+}
+.content_block .td2{
+	background-color: #fff;
+	padding-right: 5px;
+	text-align: right;
+	color: #ccc;
+}
+.content_block var{
+	color: #f00;
+}
